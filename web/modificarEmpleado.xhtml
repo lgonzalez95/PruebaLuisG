@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <ui:composition template="PlantillaMultiUso.xhtml">
+            <ui:define name="content">
+                <div>
+                    <h:form id="formulario">
+
+                        <h:panelGrid columns="3" cellpadding="5" styleClass="center_content">                              
+
+                            <h:outputLabel for="cedula" value="Cedula:"/>
+                            <h:inputText id="cedula" value="#{controlRegistroEmpleado.cedula}" />
+                            <p:message for="cedula"/> 
+                            
+                            <h:outputLabel for="nombre" value="Nombre:"/>
+                            <h:inputText id="nombre" value="#{empleado.nombre}"/>
+                            <p:message for="nombre"/>     
+
+                            <h:outputLabel for="telefono" value="Teléfono"/>
+                            <h:inputText id="telefono" value="#{empleado.telefono}"/>
+                            <p:message for="telefono"/> 
+
+                            <h:outputLabel for="puesto" value="Puesto:"/>
+                            <h:inputText id="puesto" value="#{empleado.puesto}"/>
+                            <p:message for="puesto"/>
+                            
+                            <h:outputLabel for="Tipo de trabajo" value="Tipo de trabajo:"/>
+                            <p:selectOneRadio id="console" value="#{empleado.tipoTrabajo}">
+                                <f:selectItem itemLabel="Trabajo por horas" itemValue="Trabajo por horas" />
+                                    <f:selectItem  itemLabel="Trabajo por contrato" itemValue="Trabajo por contrato"/>                                    
+                                    <p:ajax update="Cantidad" />
+                                    <p:ajax update="CantidadExtra" />
+                                    <p:ajax update="duracion" />
+                            </p:selectOneRadio>
+                            <p:message for="console"/>
+                            
+                            <h:outputLabel for="Cantidad de horas" value="Cantidad de horas:"/>
+                            <h:inputText id="Cantidad" value="#{empleado.cantidadHoras}" disabled="#{empleado.tipoTrabajo!='Trabajo por horas'}" />
+                            <p:message for="Cantidad"/>
+                            
+                            <h:outputLabel for="Cantidad de horas extra" value="Cantidad de horas extra:"/>
+                            <h:inputText id="CantidadExtra" value="#{empleado.cantidadHorasExtras}" disabled="#{empleado.tipoTrabajo!='Trabajo por horas'}" />
+                            <p:message for="CantidadExtra"/>
+                            
+                            <h:outputLabel for="Asignación familiar" value="Asignación familiar:"/>
+                            <p:selectOneRadio id="asignacion" value="#{empleado.asignacion}">
+                                    <f:selectItem itemLabel="Si" itemValue="Si" />
+                                    <f:selectItem itemLabel="No" itemValue="No" />
+                                    <p:ajax update="montoAsignacion" />
+                                </p:selectOneRadio>
+                            <p:message for="asignacion"/>
+                            
+                            <h:outputLabel for="Monto de la asignación" value="Monto de la asignación:"/>
+                            <h:inputText id="montoAsignacion" value="#{empleado.montoAsignacion}" disabled="#{empleado.asignacion!='Si'}"/>
+                            <p:message for="montoAsignacion"/>
+                            
+                            <h:outputLabel for="Duración del servicio" value="Duración del servicio"/>
+                            <h:inputText id="duracion" value="#{empleado.duracion}" disabled="#{empleado.tipoTrabajo!='Trabajo por contrato'}" />
+                            <p:message for="duracion"/>
+                            
+                            <h:outputLabel for="salarioBase" value="Salario base"/>
+                            <h:inputText id="salarioBase" value="#{empleado.salarioBase}"/>
+                            <p:message for="salarioBase"/>
+                                              
+                            <p:commandButton ajax="false" value="Buscar empleado" action="#{controlRegistroEmpleado.buscar()}"/>
+                            <p:commandButton ajax="false" value="Modificar empleado" action="#{controlRegistroEmpleado.modificar()}"/>                                                    
+                        </h:panelGrid> 
+                    </h:form>
+                </div>
+               
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

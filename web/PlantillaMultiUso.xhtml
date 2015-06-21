@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+
+            <div id="top" class="top">
+                <ui:insert name="top">
+                    <h:form>  
+                        <p:growl id="messages"/>
+
+                        <p:menubar>
+                            <p:submenu label="Archivo" icon="ui-icon-document">
+                                <p:menuitem value="Inicio" action="sesionAdministrador"/>
+                                <p:separator />
+                                <p:menuitem value="Nuevo empleado" action="ingresarEmpleado"/>                           
+                                <p:menuitem value="Modificar empleado" action="modificarEmpleado" />                                
+                                <p:menuitem value="Eliminar empleado" action="eliminarEmpleado" />
+                            </p:submenu>
+
+                            <p:submenu label="Consultas" icon="ui-icon-pencil">
+                                <p:menuitem value="Empleados" url="#" icon="ui-icon-arrowreturnthick-1-w"/>
+                                <p:menuitem value="Gastos" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+                            </p:submenu>
+
+                            <f:facet name="options">
+                                
+                                <p:commandButton value="Salir" styleClass="ui-priority-primary" icon="ui-icon-extlink" action="index" />                            
+                            </f:facet>
+                        </p:menubar>
+                    </h:form>
+                </ui:insert>
+            </div>
+
+
+        </div>
+
+        <div id="content" class="center_content">
+            <div id="content" class="center_content">
+                <ui:insert name="content">
+
+                </ui:insert>
+            </div>
+
+        </div>
+
+        <div id="bottomMulti">
+            <ui:insert name="bottom">
+                <p id="centrarTexto2"> Este sitio web ha sido desarrollado como proyecto programado
+                    del curso programación II de la <a href="http://ucr.ac.cr/">Universidad de Costa Rica</a>
+                </p>
+                <p id="centrarTexto2">
+                    Para más información consulte el sitio
+                    <a href="http://mediacionvirtual.ucr.ac.cr/19/course/view.php?id=1472">mediación virtual</a>
+                    del curso
+                </p>
+                <p id="centrarTexto2">Autor: Luis González Flores</p>
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

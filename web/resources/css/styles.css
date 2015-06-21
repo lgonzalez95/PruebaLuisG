@@ -1,0 +1,15 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02/06/2015, 08:45:32 AM
+    Author     : Diego castro
+*/
+
+#firma{background: url(.../img/images.jpeg);display: block; width: 1320px; height: 120px; margin: auto;}
+.panel_central{margin: auto;border-spacing: 4px;}
+.inputText{display: block; margin: 0px 0px 10px 45px; font-style: oblique;}
+#centrarTexto{ margin: auto; display: block; text-align: center;}
+#centrarTexto2{ margin: auto;display: block; text-align: center;}
